@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="T6E01.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="13" Y="15"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uFTexto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="24"/>
+        <CursorPos X="30" Y="32"/>
+        <UsageCount Value="20"/>
+        <Bookmarks Count="1">
+          <Item0 X="30" Y="29" Left="1" Top="23" ID="7"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="uFTexto.pas"/>
+        <Caret Line="20" Column="43"/>
+      </Position>
+      <Position>
+        <Filename Value="uFTexto.pas"/>
+        <Caret Line="43" Column="43" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="T6E01.lpr"/>
+        <Caret Line="16" Column="11"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
