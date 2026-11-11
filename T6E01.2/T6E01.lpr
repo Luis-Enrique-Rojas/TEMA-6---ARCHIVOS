@@ -1,0 +1,20 @@
+program T6E01;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  Classes, uFTexto
+  { you can add units after this };
+var
+  F:FTexto;
+begin
+  F:=FTexto.create();
+  F.crear();
+  F.leer();
+  F.copiar();
+  readln();
+end.
+
