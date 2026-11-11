@@ -1,0 +1,152 @@
+unit utexto;
+
+{$mode ObjFPC}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Dialogs;
+type
+
+ { Texto }
+
+ Texto = Class
+ private
+   nom:string;
+   f:Text;
+   estado:integer;//0=Cerado,1=Lectura,2=Escritura
+ public
+    constructor inicializar();
+    procedure setNom(nomb:string);
+    function getNom():string;
+    procedure crear();
+    procedure abrir();
+    procedure leer(var car:char);
+    procedure leerln(var cad:string);
+    procedure escribir(car:char);
+    procedure escribirln(cad:string);
+    function esFin():boolean;
+    procedure cerrar();       //CTRL+SFHITC
+ end;
+implementation
+
+{ Texto }
+
+constructor Texto.inicializar();
+begin
+  nom:='texto.txt';
+  estado:=0;//Cerrado
+end;
+
+procedure Texto.setNom(nomb: string);
+begin
+   nom:=nomb;
+end;
+
+function Texto.getNom(): string;
+begin
+   result:=nom;
+end;
+
+procedure Texto.crear();
+begin
+   if(estado=0) then //Cerrado
+   begin
+   assign(f,nom);
+   {$I-}
+   rewrite(f);   //CREAR
+   {$I+}
+   if(IOResult<>0)then
+   begin
+     showMessage('Error al CREAR archivo TXT . . .');
+     exit;
+   end;
+   estado:=2; //Escritura
+   end
+   else
+   showMessage('El Archivo TXT se encuentra ABIERTO . . . ');
+end;
+
+procedure Texto.abrir();
+begin
+   if(estado=0) then //Cerrado
+   begin
+   assign(f,nom);
+   {$I-}
+   reset(f);   //ABRIR
+   {$I+}
+   if(IOResult<>0)then
+   begin
+     showMessage('Error al CREAR archivo TXT . . .');
+     exit;
+   end;
+   estado:=1; //Lectura
+   end
+   else
+   showMessage('El Archivo TXT se encuentra ABIERTO . . . ');
+end;
+
+procedure Texto.leer(var car: char);
+begin
+   if(estado<>0)then //Abierto
+   begin
+      if(estado=1)then //Lectura
+      read(f,car)
+      else
+          showMessage('Archivo esta Abierto para Escritura . . .');
+      end
+      else
+          showMessage('El Archivo esta CERRADO . . .');
+end;
+
+procedure Texto.leerln(var cad: string);
+begin
+   if(estado<>0)then //Abierto
+   begin
+      if(estado=1)then //Lectura
+      read(f,cad)
+      else
+          showMessage('Archivo esta Abierto para Escritura . . .');
+      end
+      else
+          showMessage('El Archivo esta CERRADO . . .');
+end;
+
+procedure Texto.escribir(car: char);
+begin
+   if(estado<>0)then //Abierto
+   begin
+      if(estado=2)then  //Escritura
+           write(f,car)
+           else
+               showMessage('Archivo esta ABIERTO para Lectura . . .');
+   end
+   else
+      showMessage('El Archivo esta CERRADO . . .');
+end;
+
+procedure Texto.escribirln(cad: string);
+begin
+   if(estado<>0)then //Abierto
+   begin
+      if(estado=2)then  //Escritura
+           writeln(f,cad)
+           else
+               showMessage('Archivo esta ABIERTO para Lectura . . .');
+   end
+   else
+      showMessage('El Archivo esta CERRADO . . .');
+end;
+
+function Texto.esFin(): boolean;
+begin
+
+end;
+
+procedure Texto.cerrar();
+begin
+
+end;
+
+end.
+
